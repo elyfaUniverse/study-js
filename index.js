@@ -1,7 +1,7 @@
 class Calculator {
 	constructor(resultId, operation) {
-		this.num1Input = document.getElementById('num_1')
-		this.num2Input = document.getElementById('num_2')
+		this.num1Input = document.getElementById('input_1')
+		this.num2Input = document.getElementById('input_2')
 		this.resultElement = document.getElementById(resultId)
 		this.operation = operation
 	}
@@ -16,29 +16,35 @@ class Calculator {
 		}
 
 		const result = this.operation(num1, num2)
-		this.resultElement.textContent = 'Result: ' + result
+		this.resultElement.textContent = result
 	}
 }
 
 const add = (a, b) => a + b
 const multiply = (a, b) => a * b
+const minus = (a, b) => a - b
 
-const additionCalculator = new Calculator('result_1', add)
-const multiplyCalculator = new Calculator('result_2', multiply)
-
+const additionCalculator = new Calculator('result_add', add)
+const multiplyCalculator = new Calculator('result_multiply', multiply)
+const minusCalculator = new Calculator('result_minus', minus)
 document
 	.getElementById('btn_add')
 	.addEventListener('click', () => additionCalculator.calculate())
 document
 	.getElementById('btn_multiply')
 	.addEventListener('click', () => multiplyCalculator.calculate())
-// Reset functionality
+document
+	.getElementById('btn_minus')
+	.addEventListener('click', () => minusCalculator.calculate())
+
+// RESET
 const resetButton = document.getElementById('btn_reset')
 resetButton.addEventListener('click', () => {
-	document.getElementById('num_1').value = 0
-	document.getElementById('num_2').value = 0
-	document.getElementById('result_1').textContent = 'Result:'
-	document.getElementById('result_2').textContent = 'Result:'
+	document.getElementById('input_1').value = 0
+	document.getElementById('input_2').value = 0
+	document.getElementById('result_add').textContent = ''
+	document.getElementById('result_multiply').textContent = ''
+	document.getElementById('result_minus').textContent = ''
 })
 /*let calculator = {
 	add: function (a, b) {
@@ -47,24 +53,69 @@ resetButton.addEventListener('click', () => {
 	multiply: function (a, b) {
 		return a * b
 	},
+	minus:function(a, b){
+	    
+	    return a-b
+	}
 }
-//add
-const button_add = document.getElementById('btn_add')
-const calck_Add = function () {
-	const num_1 = parseInt(document.getElementById('num_1').value)
-	const num_2 = parseInt(document.getElementById('num_2').value)
 
-	const sum = calculator.add(num_1, num_2)
-	document.getElementById('result_1').textContent = sum
-}
-button_add.addEventListener('click', calck_Add)
+//RESET
+const reset_button=document.getElementById('btn_reset')
+reset_button.addEventListener('click',()=>{
+    document.getElementById('input_1').value=0
+    document.getElementById('input_2').value=0
+    document.getElementById('result_add').textContent=''
+    document.getElementById('result_multiply').textContent=''
+    document.getElementById('result_minus').textContent=''
+})
 
-//multiply
-const button_multiply = document.getElementById('btn_multiply')
-const calck_Multiply = function () {
-	const num_1 = parseInt(document.getElementById('num_1').value)
-	const num_2 = parseInt(document.getElementById('num_2').value)
-	const multiply = calculator.multiply(num_1, num_2)
-	document.getElementById('result_2').textContent = multiply
+
+
+
+
+
+//MINUS
+const button_minus=document.getElementById('btn_minus')
+
+const calc_minus=function(){
+    const input_1=parseInt(document.getElementById('input_1').value)
+    const input_2=parseInt(document.getElementById('input_2').value)
+    
+    const result_minus=calculator.minus(input_1, input_2)
+    
+    document.getElementById('result_minus').textContent=result_minus
+    }
+button_minus.addEventListener('click', calc_minus)
+
+
+
+//ADD
+const button_add=document.getElementById('btn_add')
+
+const calc_add=function(){
+const input_1=parseInt(document.getElementById('input_1').value)
+const input_2=parseInt(document.getElementById('input_2').value)
+
+const result_add=calculator.add(input_1, input_2)
+
+document.getElementById('result_add').textContent=result_add
 }
-button_multiply.addEventListener('click', calck_Multiply)*/
+button_add.addEventListener('click', calc_add)
+
+
+//MULTIPLY
+ const button_multiply=document.getElementById('btn_multiply')
+ 
+ const calc_multiply=function(){
+     
+     const input_1=parseInt(document.getElementById('input_2').value)
+     const input_2=parseInt(document.getElementById('input_2').value)
+
+     
+     const result_multiply=calculator.multiply(input_1, input_2)
+     
+    document.getElementById('result_multiply').textContent= result_multiply
+ }
+ 
+ button_multiply.addEventListener('click', calc_multiply)
+*/
