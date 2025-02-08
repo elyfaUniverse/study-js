@@ -1,0 +1,43 @@
+.wrapper {
+	width: 400px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0 auto;
+	padding: 10px;
+	text-align: center;
+}
+.input_wrapp {
+	background-color: blue;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+.wrapp {
+	width: 100%;
+	position: inherit;
+
+	justify-content: space-between;
+	background-color: burlywood;
+	display: flex;
+}
+.wrapp button {
+	width: 150px;
+	height: 50px;
+}
+#num_1,
+#num_2 {
+	height: 50px;
+}
+.wrapp_reset {
+	width: 100%;
+	position: inherit;
+	height: 50px;
+	justify-content: space-between;
+	display: flex;
+}
+.btn_reset {
+	width: 100%;
+	background-color: pink;
+}
