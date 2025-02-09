@@ -1,0 +1,29 @@
+.section {
+	background-color: antiquewhite;
+	width: 400px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+}
+.wrapper {
+	background-color: aquamarine;
+	display: flex;
+	flex-direction: column;
+}
+.wrapper input {
+	height: 40px;
+}
+.wrapper button {
+	height: 50px;
+	color: antiquewhite;
+	background-color: darkblue;
+}
+.result {
+	display: flex;
+	justify-content: space-between;
+	padding-right: 15px;
+	border-radius: 5px;
+}
+#result_add {
+	font-weight: bold;
+}
